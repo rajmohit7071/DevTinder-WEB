@@ -17,12 +17,22 @@ const Navbar = () => {
     dispatch(removeUser());
   }
 
+  const handleHomeButton = () =>{
+    if(user){
+      navigate("/");
+    }
+    else{
+      navigate("/login");
+    }
+  }
+
   return (
     <>
       <div className="navbar bg-base-300 shadow-sm fixed top-0 left-0 w-full z-50">
+        
         <div className="flex-1">
-          <Link to="/" className="btn btn-ghost text-xl">DevTinder</Link>
-        </div>
+          <button className="btn btn-ghost text-xl" onClick={handleHomeButton}>DevTinder </button>
+        </div> 
         {user &&
           <div className="flex gap-2">
 

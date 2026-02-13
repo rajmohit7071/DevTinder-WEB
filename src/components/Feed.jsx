@@ -10,6 +10,9 @@ const Feed = () => {
     const feed = useSelector((store) => store.feed);
     const dispatch = useDispatch();
 
+
+   
+
     const feedData = async () => {
         
         try {
@@ -24,9 +27,9 @@ const Feed = () => {
     };
 
     useEffect(() => {
-        
         feedData();
     }, []);
+
 
     if(!feed) return;
 

@@ -31,13 +31,13 @@ const Connections = () => {
 
 
     if (connections.length === 0) {
-        return <h1 className="font-bold flex justify-center text-2xl my-10">No Connections </h1>
+        return <h1 className="font-bold flex justify-center text-2xl my-20">No Connections </h1>
     }
 
     return (
         <>
             {connections &&
-                <div className="flex flex-col items-center my-10">
+                <div className="flex flex-col items-center my-15">
                     <h1 className="text-4xl font-bold my-10">Connections</h1>
                     <div className="flex flex-wrap">
             {connections.map((connection) => <ConnectionCard key={connection._id} connection={connection}/>)}
