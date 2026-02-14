@@ -24,7 +24,7 @@ const Editprofile = ({ user }) => {
             const res = await axios.patch(BASE_URL + "/profile/edit", {
                 firstName, lastName, gender, about, photoUrl, age
             }, { withCredentials: true });
-            console.log(res);
+          //  console.log(res);
 
             dispatch(addUser(res?.data?.data));
             setShowToast(true);
@@ -48,7 +48,7 @@ const Editprofile = ({ user }) => {
                         <div>
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">FirstName : </legend>
-                                <input type="text" value={firstName} className="input" placeholder="FirstName" onChange={(e) => setFirstName(e.target.value)} maxLength={50} />
+                                <input type="text" value={firstName} className="input" placeholder="FirstName" onChange={(e) => setFirstName(e.target.value)} maxLength={20} />
                             </fieldset>
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">LastName : </legend>
@@ -60,7 +60,7 @@ const Editprofile = ({ user }) => {
                             </fieldset>
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">Age : </legend>
-                                <input type="number" value={age} className="input" placeholder="Age" onChange={(e) => setAge(e.target.value)} min={0} />
+                                <input type="number" value={age} className="input" placeholder="Age" onChange={(e) => setAge(e.target.value)} min={0} max={100}/>
                             </fieldset>
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">Gender : </legend>
@@ -68,7 +68,7 @@ const Editprofile = ({ user }) => {
                             </fieldset>
                             <fieldset className="fieldset">
                                 <legend className="fieldset-legend">About : </legend>
-                                 <textarea className="textarea" value={about} placeholder="About" onChange={(e) => setAbout(e.target.value)}></textarea>
+                                 <textarea className="textarea " value={about} placeholder="About" onChange={(e) => setAbout(e.target.value)} minLength={10} maxLength={500} ></textarea>
                             </fieldset>
 
                         </div>
@@ -80,7 +80,7 @@ const Editprofile = ({ user }) => {
                 </div>
             </div>
             <UserCard user={{ firstName, lastName, gender, about, photoUrl, age }} />
-            {showToast && <div className="toast toast-top toast-end">
+            {showToast && <div className="toast toast-top toast-end mt-13">
                 <div className="alert alert-success">
                     <span>Profile Saved successfully.</span>
                 </div>

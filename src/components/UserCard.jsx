@@ -28,7 +28,7 @@ const UserCard = ({ user, requestId }) => {
   const handleSendRequest = async (status) => {
     try{
       const res = await axios.post(BASE_URL + "/request/send/" + status + "/" + user._id, {},{withCredentials:true});
-      
+
       dispatch(removeUserFromFeed(user._id));
     }
     catch(err){
@@ -53,7 +53,7 @@ const UserCard = ({ user, requestId }) => {
           {age && gender &&  <h2 className="card-title">{age + " , " + gender}</h2>}
           </div>
 
-          <p>{about} </p>
+          <p className="w-full overflow-x-auto break-words resize-y">{about} </p>
          {location.pathname.startsWith("/requests") && <div className="card-actions justify-center">
             <button className="btn btn-primary mx-2" onClick={() =>reviewRequest("rejected")}>Ignore</button>
             <button className="btn btn-secondary" onClick={() =>reviewRequest("accepted")}>Interested</button>
